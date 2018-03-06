@@ -17,12 +17,12 @@ def ServoMyServo(set_degree, word):
         if ( set_degree <= 90 and set_degree >= -90 ):
         	move_deg = int( 81 + 41 / 90 * set_degree )
         	wiringpi.pwmWrite( servo1_pin, move_deg )
-            print ("ringo-star")
+            print("ringo-star")
     elif word == 'mikan':
         if ( set_degree <= 90 and set_degree >= -90 ):
         	move_deg = int( 81 + 41 / 90 * set_degree )
         	wiringpi.pwmWrite( servo2_pin, move_deg )
-            print ("mikan no kuni")
+            print("mikan no kuni")
 
 def main():
     host = 'localhost'
