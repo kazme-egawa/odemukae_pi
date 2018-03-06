@@ -1,6 +1,6 @@
 import socket
-import xml.etree.ElementTree as ET
-import wiringpi
+# import xml.etree.ElementTree as ET
+# import wiringpi
 
 def main():
     host = 'localhost'
