@@ -61,7 +61,7 @@ def main():
         while 1:
             if '</RECOGOUT>\n.' in data:
                 data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
-                word(data)
+                print(''.join(word(data)))
                 data = ''
             else:
                 data = data + client.recv(1024).decode('utf-8')
