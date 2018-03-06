@@ -13,6 +13,7 @@ def main():
         data = ''
         while 1:
             if '</RECOGOUT>\n.' in data:
+                data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
                 print(data)
                 # root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
                 # for whypo in root.findall('./SHYPO/WHYPO'):
