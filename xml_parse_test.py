@@ -26,6 +26,7 @@ def main():
                 #     elif command == 'ぶどう' and score >= 0.93:
                 #         print("budo")
                 # data = ''
+                break
             else:
                 data = data + client.recv(1024).decode('utf-8')
     except KeyboardInterrupt:
