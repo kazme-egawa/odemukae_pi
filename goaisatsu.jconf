@@ -1,0 +1,10 @@
+-w goaisatsu.dic
+-v model/lang_m/bccwj.60k.htkdic
+-h model/phone_m/jnas-tri-3k16-gid.binhmm
+-hlist model/phone_m/logicalTri
+-n 5
+-output 1
+-input mic
+-rejectshort 600
+-charconv euc-jp utf8
+-lv 1000
