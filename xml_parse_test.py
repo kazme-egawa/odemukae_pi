@@ -16,10 +16,10 @@ def main():
                 print(data)
                 for line in recv_data.split('\n'):
                     index = line.find('WORD="')
-                        if index!=-1:
-                            line = line[index+6:line.find('"',index+6)]
-                            if(line!='<s>' and line!='</s>'):
-                                yield line
+                    if index!=-1:
+                        line = line[index+6:line.find('"',index+6)]
+                        if(line!='<s>' and line!='</s>'):
+                            yield line
                 # data = unicode(data, 'cp932')
                 # data = data.replace('encoding="shift_jis"', 'encoding="utf-8"')
                 # data = data.encode('utf-8')
