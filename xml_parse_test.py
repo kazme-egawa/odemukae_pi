@@ -8,6 +8,7 @@ def word(recv_data):
         if index!=-1:
             line = line[index+6:line.find('"',index+6)]
             if(line!='<s>' and line!='</s>'):
+                print(line)
                 yield line
 
 def main():
