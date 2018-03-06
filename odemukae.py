@@ -54,7 +54,7 @@ def main():
                         time.sleep(1)
                 data = ''
             else:
-                data = data + client.recv(1024)
+                data = data + (str)client.recv(1024)
     except KeyboardInterrupt:
         client.close()
 
