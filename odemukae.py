@@ -30,7 +30,7 @@ def word(recv_data):
         if index1!=-1:
             WORD = line[index1+6:line.find('"',index1+6)]
             if index2!=-1:
-                CM = line[index2+4:line.find('"',index2+4)]
+                CM = float(line[index2+4:line.find('"',index2+4)])
                 if(WORD!='<s>' and WORD!='</s>'):
                     if WORD == 'リンゴ' and CM >= 0.9:
                         print("ringo star")
