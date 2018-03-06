@@ -22,7 +22,7 @@ def main():
         while 1:
             if '</RECOGOUT>\n.' in data:
                 data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
-
+                print(data)
                 print(''.join(word(data)))
                 data = ''
             else:
