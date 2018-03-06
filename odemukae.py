@@ -7,7 +7,8 @@ servo1_pin  =  12
 servo2_pin  =  13
 
 wiringpi.wiringPiSetupGpio()
-wiringpi.pinMode( servo_pin, 2 )
+wiringpi.pinMode( servo1_pin, 2 )
+wiringpi.pinMode( servo2_pin, 2 )
 wiringpi.pwmSetMode(0)
 wiringpi.pwmSetRange(1024)
 wiringpi.pwmSetClock(375)
