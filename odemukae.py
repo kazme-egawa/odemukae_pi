@@ -2,6 +2,7 @@ import socket
 import xml.etree.ElementTree as ET
 import wiringpi
 import time
+import sys
 
 servo1_pin  =  12
 servo2_pin  =  13
@@ -54,7 +55,9 @@ def main():
                         time.sleep(1)
                 data = ''
             else:
-                data = data + (str)client.recv(1024)
+                print(data)
+                print(client.recv(1024))
+                data = data + client.recv(1024)
     except KeyboardInterrupt:
         client.close()
 
