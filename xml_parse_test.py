@@ -8,14 +8,14 @@ def word(recv_data):
         if index!=-1:
             line = line[index+6:line.find('"',index+6)]
             if(line!='<s>' and line!='</s>'):
-                # print(line)
+                print(line)
                 if line == 'リンゴ':
                     print("ringo star")
                 elif command == '蜜柑':
                     print("mikan no kuni")
                 elif command == 'ぶどう':
                     print("budo")
-                # yield line
+                yield line
 
 def main():
     host = 'localhost'
@@ -30,7 +30,7 @@ def main():
             if '</RECOGOUT>\n.' in data:
                 data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
 
-                # print(''.join(word(data)))
+                print(''.join(word(data)))
                 # root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
                 # for whypo in root.findall('./SHYPO/WHYPO'):
                 #     command = whypo.get('WORD')
