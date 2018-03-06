@@ -1,5 +1,4 @@
 import socket
-# import xml.etree.ElementTree as ET
 import wiringpi
 
 def word(recv_data):
@@ -31,17 +30,6 @@ def main():
                 data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
 
                 print(''.join(word(data)))
-                # root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
-                # for whypo in root.findall('./SHYPO/WHYPO'):
-                #     command = whypo.get('WORD')
-                #     score = float(whypo.get('CM'))
-                #
-                #     if command == 'リンゴ' and score >= 0.9:
-                #         print("ringo star")
-                #     elif command == '蜜柑' and score >= 0.996:
-                #         print("mikan no kuni")
-                #     elif command == 'ぶどう' and score >= 0.93:
-                #         print("budo")
                 data = ''
             else:
                 data = data + client.recv(1024).decode('utf-8')

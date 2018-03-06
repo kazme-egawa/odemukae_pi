@@ -29,17 +29,16 @@ def word(recv_data):
         if index!=-1:
             line = line[index+6:line.find('"',index+6)]
             if(line!='<s>' and line!='</s>'):
-                print(line)
                 if line == 'リンゴ':
                     print("ringo star")
-                    ServoMyServo(90, ringo)
+                    ServoMyServo(90, 'ringo')
                     time.sleep(1)
-                    ServoMyServo(0,ringo)
+                    ServoMyServo(0, 'ringo')
                 elif line == '蜜柑':
                     print("mikan no kuni")
-                    ServoMyServo(90, mikan)
+                    ServoMyServo(90, 'mikan')
                     time.sleep(1)
-                    ServoMyServo(0, mikan)
+                    ServoMyServo(0, 'mikan')
                 elif line == 'ぶどう':
                     print("budo")
                 yield line
