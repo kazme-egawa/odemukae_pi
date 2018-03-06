@@ -17,12 +17,10 @@ def ServoMyServo(set_degree, word):
         if ( set_degree <= 90 and set_degree >= -90 ):
         	move_deg = int( 81 + 41 / 90 * set_degree )
         	wiringpi.pwmWrite( servo1_pin, move_deg )
-        print("ringo-star")
     elif word == 'mikan':
         if ( set_degree <= 90 and set_degree >= -90 ):
         	move_deg = int( 81 + 41 / 90 * set_degree )
         	wiringpi.pwmWrite( servo2_pin, move_deg )
-        print("mikan no kuni")
 
 def main():
     host = 'localhost'
@@ -41,14 +39,18 @@ def main():
                     score = float(whypo.get('CM'))
 
                     if command == u'リンゴ' and score >= 0.9:
+                        print("ringo star")
                         ServoMyServo(90, ringo)
                         time.sleep(1)
                         ServoMyServo(0,ringo)
                     elif command == u'蜜柑' and score >= 0.996:
+                        print("mikan no kuni")
                         ServoMyServo(90, mikan)
                         time.sleep(1)
                         ServoMyServo(0, mikan)
                     elif command == u'ぶどう' and score >= 0.93:
+                        print("budo")
+                        time.sleep(1)
                 data = ''
             else:
                 data = data + client.recv(1024)
