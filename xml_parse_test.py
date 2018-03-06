@@ -14,7 +14,7 @@ def main():
         while 1:
             if '</RECOGOUT>\n.' in data:
                 print(data)
-                root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
+                # root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
                 # for whypo in root.findall('./SHYPO/WHYPO'):
                 #     command = whypo.get('WORD')
                 #     score = float(whypo.get('CM'))
