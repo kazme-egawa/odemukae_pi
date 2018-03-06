@@ -33,17 +33,20 @@ def word(recv_data):
                 CM = float(line[index2+4:line.find('"',index2+4)])
                 if(WORD!='<s>' and WORD!='</s>'):
                     if WORD == 'リンゴ' and CM >= 0.9:
-                        print("ringo star")
+                        print(ringo star)
+                        print(CM)
                         ServoMyServo(90, 'ringo')
                         time.sleep(1)
                         ServoMyServo(0, 'ringo')
                     elif WORD == '蜜柑' and CM >= 0.9:
                         print("mikan no kuni")
+                        print(CM)
                         ServoMyServo(90, 'mikan')
                         time.sleep(1)
                         ServoMyServo(0, 'mikan')
                     elif WORD == 'ぶどう' and CM >= 0.9:
                         print("budo")
+                        print(CM)
                     yield WORD
 
 def main():
@@ -58,7 +61,7 @@ def main():
         while 1:
             if '</RECOGOUT>\n.' in data:
                 data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
-                print(''.join(word(data)))
+                word(data)
                 data = ''
             else:
                 data = data + client.recv(1024).decode('utf-8')
