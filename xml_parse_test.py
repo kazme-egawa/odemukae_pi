@@ -8,12 +8,6 @@ def word(recv_data):
             line = line[index+6:line.find('"',index+6)]
             if(line!='<s>' and line!='</s>'):
                 print(line)
-                if line == 'リンゴ':
-                    print("ringo star")
-                elif line == '蜜柑':
-                    print("mikan no kuni")
-                elif line == 'ぶどう':
-                    print("budo")
                 yield line
 
 def main():
