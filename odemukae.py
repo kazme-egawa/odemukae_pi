@@ -32,21 +32,18 @@ def word(recv_data):
             if index2!=-1:
                 CM = float(line[index2+4:line.find('"',index2+4)])
                 if(WORD!='<s>' and WORD!='</s>'):
-                    if WORD == 'リンゴ' and CM >= 0.9:
-                        print("ringo star")
+                    if WORD == '開けて' and CM >= 0.9:
+                        print(WORD)
                         print(CM)
                         ServoMyServo(90, 'ringo')
                         time.sleep(1)
                         ServoMyServo(0, 'ringo')
-                    elif WORD == '蜜柑' and CM >= 0.9:
-                        print("mikan no kuni")
+                    elif WORD == 'どうぞ' and CM >= 0.9:
+                        print(WORD)
                         print(CM)
                         ServoMyServo(90, 'mikan')
                         time.sleep(1)
                         ServoMyServo(0, 'mikan')
-                    elif WORD == 'ぶどう' and CM >= 0.9:
-                        print("budo")
-                        print(CM)
                     yield WORD
 
 def main():
