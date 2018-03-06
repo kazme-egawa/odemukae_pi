@@ -55,9 +55,7 @@ def main():
                         time.sleep(1)
                 data = ''
             else:
-                print(data)
-                print(client.recv(1024))
-                data = data + client.recv(1024)
+                data = data + client.recv(1024).decode('utf-8')
     except KeyboardInterrupt:
         client.close()
 
