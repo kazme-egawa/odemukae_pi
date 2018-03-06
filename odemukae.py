@@ -25,23 +25,26 @@ def ServoMyServo(set_degree, word):
 
 def word(recv_data):
     for line in recv_data.split('\n'):
-        index = line.find('WORD="')
-        if index!=-1:
-            line = line[index+6:line.find('"',index+6)]
-            if(line!='<s>' and line!='</s>'):
-                if line == 'リンゴ':
-                    print("ringo star")
-                    ServoMyServo(90, 'ringo')
-                    time.sleep(1)
-                    ServoMyServo(0, 'ringo')
-                elif line == '蜜柑':
-                    print("mikan no kuni")
-                    ServoMyServo(90, 'mikan')
-                    time.sleep(1)
-                    ServoMyServo(0, 'mikan')
-                elif line == 'ぶどう':
-                    print("budo")
-                yield line
+        index1 = line.find('WORD="')
+        index2 = line.find('CM="')
+        if index1!=-1:
+            WORD = line[index1+6:line.find('"',index1+6)]
+            if index2!=-1:
+                CM = line[index2+4:line.find('"',index2+4)]
+                if(WORD!='<s>' and WORD!='</s>'):
+                    if WORD == 'リンゴ' and CM >= 0.9:
+                        print("ringo star")
+                        ServoMyServo(90, 'ringo')
+                        time.sleep(1)
+                        ServoMyServo(0, 'ringo')
+                    elif WORD == '蜜柑' and CM >= 0.9:
+                        print("mikan no kuni")
+                        ServoMyServo(90, 'mikan')
+                        time.sleep(1)
+                        ServoMyServo(0, 'mikan')
+                    elif WORD == 'ぶどう' and CM >= 0.9:
+                        print("budo")
+                    yield WORD
 
 def main():
     host = 'localhost'
