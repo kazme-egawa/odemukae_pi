@@ -1,5 +1,5 @@
 import socket
-import xml.etree.ElementTree as ET
+# import xml.etree.ElementTree as ET
 import wiringpi
 
 def word(recv_data):

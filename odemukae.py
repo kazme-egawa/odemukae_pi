@@ -1,5 +1,4 @@
 import socket
-import xml.etree.ElementTree as ET
 import wiringpi
 import time
 import sys
@@ -24,6 +23,27 @@ def ServoMyServo(set_degree, word):
         	move_deg = int( 81 + 41 / 90 * set_degree )
         	wiringpi.pwmWrite( servo2_pin, move_deg )
 
+def word(recv_data):
+    for line in recv_data.split('\n'):
+        index = line.find('WORD="')
+        if index!=-1:
+            line = line[index+6:line.find('"',index+6)]
+            if(line!='<s>' and line!='</s>'):
+                print(line)
+                if line == 'リンゴ':
+                    print("ringo star")
+                    ServoMyServo(90, ringo)
+                    time.sleep(1)
+                    ServoMyServo(0,ringo)
+                elif line == '蜜柑':
+                    print("mikan no kuni")
+                    ServoMyServo(90, mikan)
+                    time.sleep(1)
+                    ServoMyServo(0, mikan)
+                elif line == 'ぶどう':
+                    print("budo")
+                yield line
+
 def main():
     host = 'localhost'
     port = 10500
@@ -35,25 +55,8 @@ def main():
         data = ''
         while 1:
             if '</RECOGOUT>\n.' in data:
-                print(data)
-                root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
-                for whypo in root.findall('./SHYPO/WHYPO'):
-                    command = whypo.get('WORD')
-                    score = float(whypo.get('CM'))
-
-                    if command == 'リンゴ' and score >= 0.9:
-                        print("ringo star")
-                        ServoMyServo(90, ringo)
-                        time.sleep(1)
-                        ServoMyServo(0,ringo)
-                    elif command == '蜜柑' and score >= 0.996:
-                        print("mikan no kuni")
-                        ServoMyServo(90, mikan)
-                        time.sleep(1)
-                        ServoMyServo(0, mikan)
-                    elif command == 'ぶどう' and score >= 0.93:
-                        print("budo")
-                        time.sleep(1)
+                data = data[data.find('<RECOGOUT>'):].replace('\n.', '')
+                print(''.join(word(data)))
                 data = ''
             else:
                 data = data + client.recv(1024).decode('utf-8')
