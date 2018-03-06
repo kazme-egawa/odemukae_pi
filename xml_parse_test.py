@@ -14,7 +14,7 @@ def main():
         while 1:
             if '</RECOGOUT>\n.' in data:
                 print(data)
-                data = unicode(data, 'cp932')
+                # data = unicode(data, 'cp932')
                 data = data.replace('encoding="shift_jis"', 'encoding="utf-8"')
                 data = data.encode('utf-8')
                 root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
