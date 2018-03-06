@@ -39,17 +39,17 @@ def main():
                     command = whypo.get('WORD')
                     score = float(whypo.get('CM'))
 
-                    if command == u'リンゴ' and score >= 0.9:
+                    if command == 'リンゴ' and score >= 0.9:
                         print("ringo star")
                         ServoMyServo(90, ringo)
                         time.sleep(1)
                         ServoMyServo(0,ringo)
-                    elif command == u'蜜柑' and score >= 0.996:
+                    elif command == '蜜柑' and score >= 0.996:
                         print("mikan no kuni")
                         ServoMyServo(90, mikan)
                         time.sleep(1)
                         ServoMyServo(0, mikan)
-                    elif command == u'ぶどう' and score >= 0.93:
+                    elif command == 'ぶどう' and score >= 0.93:
                         print("budo")
                         time.sleep(1)
                 data = ''
