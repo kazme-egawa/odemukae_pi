@@ -33,7 +33,7 @@ def word(recv_data):
                 CM = float(line[index2+4:line.find('"',index2+4)])
                 if(WORD!='<s>' and WORD!='</s>'):
                     if WORD == 'リンゴ' and CM >= 0.9:
-                        print(ringo star)
+                        print("ringo star")
                         print(CM)
                         ServoMyServo(90, 'ringo')
                         time.sleep(1)
