@@ -35,13 +35,13 @@ def word(recv_data):
                     if WORD == '開けて' and CM >= 0.98:
                         print(WORD)
                         print(CM)
-                        ServoMyServo(90, 'ringo')
+                        ServoMyServo(45, 'ringo')
                         time.sleep(1)
                         ServoMyServo(0, 'ringo')
                     elif WORD == 'どうぞ' and CM >= 0.98:
                         print(WORD)
                         print(CM)
-                        ServoMyServo(90, 'mikan')
+                        ServoMyServo(45, 'mikan')
                         time.sleep(1)
                         ServoMyServo(0, 'mikan')
                     yield WORD
