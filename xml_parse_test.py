@@ -1,6 +1,6 @@
 import socket
-# import xml.etree.ElementTree as ET
-# import wiringpi
+import xml.etree.ElementTree as ET
+import wiringpi
 
 def main():
     host = 'localhost'
@@ -14,17 +14,7 @@ def main():
         while 1:
             if '</RECOGOUT>\n.' in data:
                 print(data)
-                for line in recv_data.split('\n'):
-                    index = line.find('WORD="')
-                    if index!=-1:
-                        line = line[index+6:line.find('"',index+6)]
-                        if(line!='<s>' and line!='</s>'):
-                            yield line
-                # data = unicode(data, 'cp932')
-                # data = data.replace('encoding="shift_jis"', 'encoding="utf-8"')
-                # data = data.encode('utf-8')
-                # root = ET.fromstring(data[data.find('<RECOGOUT>'):].replace('\n.', ''))
-                # root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
+                root = ET.fromstring('<?xml version="1.0"?>\n' + data[data.find('<RECOGOUT>'):].replace('\n.', ''))
                 # for whypo in root.findall('./SHYPO/WHYPO'):
                 #     command = whypo.get('WORD')
                 #     score = float(whypo.get('CM'))
