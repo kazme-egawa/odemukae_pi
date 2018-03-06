@@ -6,7 +6,7 @@ def word(recv_data):
         index = line.find('WORD="')
         if index!=-1:
             line = line[index+6:line.find('"',index+6)]
-            if(line!='<s>' and line!='</s>'):
+            if(line!='[s]' and line!='[/s]'):
                 print(line)
                 yield line
 
