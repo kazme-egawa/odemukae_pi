@@ -11,9 +11,9 @@ def word(recv_data):
                 print(line)
                 if line == 'リンゴ':
                     print("ringo star")
-                elif command == '蜜柑':
+                elif line == '蜜柑':
                     print("mikan no kuni")
-                elif command == 'ぶどう':
+                elif line == 'ぶどう':
                     print("budo")
                 yield line
 
