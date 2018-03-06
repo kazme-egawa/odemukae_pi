@@ -31,7 +31,7 @@ def word(recv_data):
             WORD = line[index1+6:line.find('"',index1+6)]
             if index2!=-1:
                 CM = float(line[index2+4:line.find('"',index2+4)])
-                if(WORD!='<s>' and WORD!='</s>'):
+                if(WORD!='[s]' and WORD!='[/s]'):
                     if WORD == '開けて' and CM >= 0.98:
                         print(WORD)
                         print(CM)
